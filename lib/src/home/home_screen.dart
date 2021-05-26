@@ -1,3 +1,4 @@
+import 'package:fliper_app/src/components/text_home.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -33,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                               fontWeight: FontWeight.bold),
                         ),
                         IconButton(
-                          alignment: Alignment.centerRight,                          
+                          alignment: Alignment.centerRight,
                           icon: Icon(Icons.more_vert),
                           color: Colors.grey.shade400,
                           onPressed: () {},
@@ -44,11 +45,7 @@ class HomeScreen extends StatelessWidget {
                       height: 35,
                     ),
                     Center(
-                      child: Text("Valor investido",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.grey.shade400,
-                              fontWeight: FontWeight.bold)),
+                      child: TextHome("Valor investido"),
                     ),
                     SizedBox(
                       height: 12,
@@ -73,19 +70,10 @@ class HomeScreen extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  "Rentabilidade/mês",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade400,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
+                                TextHome("Rentabilidade/mês"),
+                                TextHome(
                                   "2,767%",
-                                  style: TextStyle(
-                                      color: Color(0xff3b5cb8),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                                  color: Color(0xff3b5cb8),
                                 ),
                               ],
                             ),
@@ -98,19 +86,12 @@ class HomeScreen extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                TextHome(
                                   "CDI",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade400,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
                                 ),
-                                Text(
+                                TextHome(
                                   "3,45%",
-                                  style: TextStyle(
-                                      color: Color(0xff3b5cb8),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                                  color: Color(0xff3b5cb8),
                                 ),
                               ],
                             ),
@@ -123,19 +104,12 @@ class HomeScreen extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                TextHome(
                                   "Ganho/mês",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade400,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
                                 ),
-                                Text(
+                                TextHome(
                                   "R\$ 1833,23",
-                                  style: TextStyle(
-                                      color: Color(0xff3b5cb8),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                                  color: Color(0xff3b5cb8),
                                 ),
                               ],
                             ),
@@ -147,7 +121,6 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     Divider(),
-                    
                     Row(
                       //mainAxisAlignment: MainAxisAlignment.end,
                       children: [
