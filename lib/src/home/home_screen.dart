@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                         Text(
                           "Seu resumo",
                           style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 25,
                               color: Color(0xff3b5cb8),
                               fontWeight: FontWeight.bold),
                         ),
@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
                         "R\$ 3.000.000,00",
                         style: TextStyle(
                             color: Color(0xff3b5cb8),
-                            fontSize: 26,
+                            fontSize: 22,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
