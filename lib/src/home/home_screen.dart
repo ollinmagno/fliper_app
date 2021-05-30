@@ -1,5 +1,7 @@
 import 'package:fliper_app/src/components/text_home.dart';
+import 'package:fliper_app/src/repository/home_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -7,6 +9,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  HomeRepository _homeRepository;
+
+  @override
+  void initState() {
+    _homeRepository = new HomeRepository();
+    _homeRepository.getData();
+    super.initState();
+  }
+
+  final formatter = NumberFormat("#,##");
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Center(
                       child: Text(
-                        "R\$ 3.000.000,00",
+                        "R\$ ${_homeRepository.table['wealthSummary'][0]['total']}",
                         style: TextStyle(
                             color: Color(0xff3b5cb8),
                             fontSize: 22,
@@ -77,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 TextHome("Rentabilidade/mês"),
                                 TextHome(
-                                  "2,767%",
+                                  "${_homeRepository.table['wealthSummary'][0]['profitability']}%",
                                   color: Color(0xff3b5cb8),
                                 ),
                               ],
@@ -95,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   "CDI",
                                 ),
                                 TextHome(
-                                  "3,45%",
+                                  "${_homeRepository.table['wealthSummary'][0]['cdi']}%",
                                   color: Color(0xff3b5cb8),
                                 ),
                               ],
@@ -113,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   "Ganho/mês",
                                 ),
                                 TextHome(
-                                  "R\$ 1833,23",
+                                  "R\$ ${_homeRepository.table['wealthSummary'][0]['gain']}",
                                   color: Color(0xff3b5cb8),
                                 ),
                               ],
