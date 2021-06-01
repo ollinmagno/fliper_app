@@ -32,9 +32,9 @@ class HomeRepository {
 }
   """;
   Future<DigitalWallet> getData() async {
-    //var snapshot = _hasuraConnect.subscription(subscriptionTable);
-    var result = await _hasuraConnect.query(query);
-    DigitalWallet model = DigitalWallet.fromJson(result);
+    var result = _hasuraConnect.subscription(subscriptionTable);
+    //var result = await _hasuraConnect.query(query);
+    DigitalWallet model = DigitalWallet.fromJson(result.value);
     return model;
   }
 }
