@@ -73,7 +73,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             if (snapshot.hasData) {
                               final format = NumberFormat("#,##0.00", "pt_BR");
                               var total = format.format(snapshot.data.data.wealthSummary[0].total);
-                              print(snapshot.data);
                               return Text(
                                 "R\$ $total",
                                 style: TextStyle(
@@ -102,7 +101,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     future: _homeRepository.getData(),
                                     builder: (context, snapshot) {
                                       if (snapshot.hasData) {
-                                        print(snapshot.data);
                                         return TextHome(
                                           "${snapshot.data.data.wealthSummary[0].profitability.toStringAsFixed(3)}%",
                                         );
@@ -128,7 +126,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     future: _homeRepository.getData(),
                                     builder: (context, snapshot) {
                                       if (snapshot.hasData) {
-                                        print(snapshot.data);
                                         return TextHome(
                                           "${snapshot.data.data.wealthSummary[0].cdi.toStringAsFixed(2)}%",
                                         );
@@ -154,7 +151,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     future: _homeRepository.getData(),
                                     builder: (context, snapshot) {
                                       if (snapshot.hasData) {
-                                        print(snapshot.data);
                                         return TextHome(
                                           "R\$${snapshot.data.data.wealthSummary[0].gain}",
                                         );
