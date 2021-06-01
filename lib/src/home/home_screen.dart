@@ -103,6 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       if (snapshot.hasData) {
                                         return TextHome(
                                           "${snapshot.data.data.wealthSummary[0].profitability.toStringAsFixed(3)}%",
+                                          color: Color(0xff3b5cb8),
                                         );
                                       } else {
                                         return CircularProgressIndicator();
@@ -128,6 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       if (snapshot.hasData) {
                                         return TextHome(
                                           "${snapshot.data.data.wealthSummary[0].cdi.toStringAsFixed(2)}%",
+                                          color: Color(0xff3b5cb8),
                                         );
                                       } else {
                                         return CircularProgressIndicator();
@@ -153,6 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       if (snapshot.hasData) {
                                         return TextHome(
                                           "R\$${snapshot.data.data.wealthSummary[0].gain}",
+                                          color: Color(0xff3b5cb8),
                                         );
                                       } else {
                                         return CircularProgressIndicator();
