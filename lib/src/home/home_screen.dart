@@ -18,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  final formatter = NumberFormat("#,##");
 
   @override
   Widget build(BuildContext context) {
