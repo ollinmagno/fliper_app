@@ -11,13 +11,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   HomeRepository _homeRepository;
-
+  
   @override
   void initState() {
     _homeRepository = new HomeRepository();
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +71,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           future: _homeRepository.getData(),
                           builder: (context, snapshot) {
                             if (snapshot.hasData) {
+                              final format = NumberFormat("#,##0.00", "pt_BR");
+                              var total = format.format(snapshot.data.data.wealthSummary[0].total);
                               print(snapshot.data);
                               return Text(
-                                "R\$ ${snapshot.data.data.wealthSummary[0].total}",
+                                "R\$ $total",
                                 style: TextStyle(
                                     color: Color(0xff3b5cb8),
                                     fontSize: 22,
@@ -97,10 +98,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 TextHome("Rentabilidade/mês"),
-                                TextHome(
-                                  "",
-                                  color: Color(0xff3b5cb8),
-                                ),
+                                FutureBuilder<DigitalWallet>(
+                                    future: _homeRepository.getData(),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasData) {
+                                        print(snapshot.data);
+                                        return TextHome(
+                                          "${snapshot.data.data.wealthSummary[0].profitability.toStringAsFixed(3)}%",
+                                        );
+                                      } else {
+                                        return CircularProgressIndicator();
+                                      }
+                                    }),
                               ],
                             ),
                           ),
@@ -115,10 +124,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                 TextHome(
                                   "CDI",
                                 ),
-                                TextHome(
-                                  "",
-                                  color: Color(0xff3b5cb8),
-                                ),
+                                FutureBuilder<DigitalWallet>(
+                                    future: _homeRepository.getData(),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasData) {
+                                        print(snapshot.data);
+                                        return TextHome(
+                                          "${snapshot.data.data.wealthSummary[0].cdi.toStringAsFixed(2)}%",
+                                        );
+                                      } else {
+                                        return CircularProgressIndicator();
+                                      }
+                                    }),
                               ],
                             ),
                           ),
@@ -133,10 +150,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                 TextHome(
                                   "Ganho/mês",
                                 ),
-                                TextHome(
-                                  "",
-                                  color: Color(0xff3b5cb8),
-                                ),
+                                FutureBuilder<DigitalWallet>(
+                                    future: _homeRepository.getData(),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasData) {
+                                        print(snapshot.data);
+                                        return TextHome(
+                                          "R\$${snapshot.data.data.wealthSummary[0].gain}",
+                                        );
+                                      } else {
+                                        return CircularProgressIndicator();
+                                      }
+                                    }),
                               ],
                             ),
                           ),
