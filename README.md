@@ -1,16 +1,5 @@
-# flipper_app
+# Fliper app
 
-A new Flutter project.
+![photo5024255200038332667 (1)](https://user-images.githubusercontent.com/41454237/120402909-92d58e80-c319-11eb-94b4-9368164a6475.png)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
