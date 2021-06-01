@@ -1,21 +1,14 @@
+import 'package:fliper_app/src/model/digital_wallet.dart';
 import 'package:hasura_connect/hasura_connect.dart';
 
 class HomeRepository {
-  HasuraConnect hasuraConnect = HasuraConnect(
-      'https://harura-fliper-test.herokuapp.com/v1/graphql',
-      headers: {'x-hasura-admin-secret': 'fliperdevtest2020'});
-  
-  var table;
+  HasuraConnect _hasuraConnect;
 
-  Future getData() async {
-    var snapshot = hasuraConnect.subscription(subscriptionTable);
-    snapshot.listen((data) async {
-      print(data);
-      table = await data['data'];
-      return table;
-    });
+  HomeRepository() {
+    _hasuraConnect = new HasuraConnect(
+        'https://harura-fliper-test.herokuapp.com/v1/graphql',
+        headers: {'x-hasura-admin-secret': 'fliperdevtest2020'});
   }
-
   String subscriptionTable = """
     subscription MySubscription {
       wealthSummary(distinct_on: cdi, order_by: {}) {
@@ -27,4 +20,21 @@ class HomeRepository {
       }
     }
   """;
+  String query = """
+    {
+  wealthSummary {
+    id
+    gain
+    cdi
+    profitability
+    total
+  }
+}
+  """;
+  Future<DigitalWallet> getData() async {
+    //var snapshot = _hasuraConnect.subscription(subscriptionTable);
+    var result = await _hasuraConnect.query(query);
+    DigitalWallet model = DigitalWallet.fromJson(result);
+    return model;
+  }
 }
